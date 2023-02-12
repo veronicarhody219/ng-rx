@@ -1,0 +1,8 @@
+<div class="container">
+  <app-output [counter]="counter"></app-output>
+  <app-button
+    (incrementEvent)="onIncrement()"
+    (decrementEvent)="onDecrement()"
+    (resetEvent)="onReset()"
+  ></app-button>
+</div>
