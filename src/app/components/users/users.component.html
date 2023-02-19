@@ -1,0 +1,27 @@
+<button class="btn btn-complementary" (click)="openDialog('')">Add user</button>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td>{{ user.userName }}</td>
+        <td>{{ user.email }}</td>
+        <td>
+          <button class="btn" (click)="editUser(user._id)">Edit</button>|<button
+            class="btn btn-delete"
+            (click)="deleteUser(user._id)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

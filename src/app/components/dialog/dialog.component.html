@@ -1,0 +1,23 @@
+<div class="container" #content>
+  <h1 mat-dialog-title>User list</h1>
+  <form [formGroup]="reactiveForm" (ngSubmit)="saveUser()">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>User name</mat-label>
+        <input type="text" matInput formControlName="userName" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>User email</mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>User password</mat-label>
+        <input type="password" matInput formControlName="password" />
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+      <button type="submit" mat-button cdkFocusInitial>OK</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
+  justify-content: space-between;
+}
+.display-container {
+  margin-left: 1em;
+  border-collapse: collapse;
+}
+.form-container {
+  margin-left: 1em;
+}
+td,
+thead {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f3f1f1;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: var(--border);
+  color: white;
+}
+.btn-action {
+  padding: 0.5em;
+  display: inline;
+}
