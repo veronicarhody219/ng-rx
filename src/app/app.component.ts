@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { User } from './interface/user';
+
+import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +12,18 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
   title = 'learn-ngrx';
-  userData: any;
-  constructor(private userService: UserService, private dialog: MatDialog) {}
+  lang;
+  constructor(
+    public authService: AuthService,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en', 'vi']);
+    translate.setDefaultLang('en');
+    // translate.use(localStorage.getItem("lang") || "en")
+  }
+
   ngOnInit(): void {}
-  // getAll() {
-  //   this.userService.getUsers().subscribe((user) => {
-  //     this.userData = user;
-  //   });
-  // }
+  changeLang(lang) {
+    this.translate.use(lang);
+  }
 }

@@ -23,11 +23,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 import { UsersComponent } from './components/users/users.component';
-import {  HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClient,
+} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +58,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     LoginComponent,
     SignupComponent,
     WelcomeComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,8 +69,22 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     [StoreModule.forRoot({ counter: counterReducer }), BrowserAnimationsModule],
     ReactiveFormsModule,
     MaterialModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en',
+    }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   entryComponents: [DialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

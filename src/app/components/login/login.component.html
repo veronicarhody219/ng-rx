@@ -1,3 +1,29 @@
-<form >
-    
+<form class="form-container" [formGroup]="loginForm" (ngSubmit)="login()">
+  <h2>Login form</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>User email</mat-label>
+    <input
+      type="email"
+      matInput
+      placeholder="User email"
+      formControlName="email"
+    />
+    <mat-error>Enter your email</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      type="password"
+      matInput
+      placeholder="Password"
+      formControlName="password"
+    />
+    <mat-error>Enter your password</mat-error>
+  </mat-form-field>
+
+  <mat-card-action>
+    <button class="btn btn-cancel">Cancel</button>
+    <button type="sumit" class="btn btn-login">Login</button>
+  </mat-card-action>
 </form>

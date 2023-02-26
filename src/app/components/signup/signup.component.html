@@ -1,1 +1,18 @@
-<p>signup works!</p>
+<form class="form-container" [formGroup]="reactiveForm" (ngSubmit)="register()">
+  <h2>Signup form</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>User email</mat-label>
+    <input type="text" matInput placeholder="User email" formControlName="email"/>
+    <mat-error>Enter your email</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput placeholder="Password" formControlName="password" />
+    <mat-error>Enter your password</mat-error>
+  </mat-form-field>
+  <mat-card-action>
+    <button class="btn btn-cancel">Cancel</button>
+    <button type="submit" class="btn btn-login">Creat an account</button>
+  </mat-card-action>
+</form>

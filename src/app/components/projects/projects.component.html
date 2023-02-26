@@ -3,10 +3,10 @@
     <table>
       <thead>
         <tr>
-          <th>id</th>
-          <th>Project name</th>
-          <th>Description</th>
-          <th>Action</th>
+          <th>{{ "id" | translate }}</th>
+          <th>{{ "Project name" | translate }}</th>
+          <th>{{ "Description" | translate }}</th>
+          <th>{{ "Action" | translate }}</th>
         </tr>
       </thead>
       <tbody *ngFor="let project of projects">
@@ -16,11 +16,10 @@
           <td>{{ project.desc }}</td>
           <td>
             <div>
-              <button class="btn btn-action">Edit</button>
-              <button class="btn btn-action">Delete</button>
+              <button class="btn btn-action">{{ "Edit" | translate }}</button>
+              <button class="btn btn-action">{{ "Delete" | translate }}</button>
             </div>
           </td>
-         
         </tr>
       </tbody>
     </table>
@@ -29,7 +28,7 @@
   <div class="form-container">
     <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
       <div>
-        <label for="pname">Project's name</label>
+        <label for="pname">{{ "Project's name" | translate }}</label>
         <input
           type="text"
           id="pname"
@@ -38,7 +37,7 @@
         />
       </div>
       <div>
-        <label for="desc">Description</label>
+        <label for="desc">{{ "Description" | translate }}</label>
         <input
           type="text"
           id="desc"
@@ -46,7 +45,9 @@
           formControlName="desc"
         />
       </div>
-      <div><button class="btn" type="submit">Submit</button></div>
+      <div>
+        <button class="btn" type="submit">{{ "Submit" | translate }}</button>
+      </div>
     </form>
   </div>
 </div>

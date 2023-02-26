@@ -47,3 +47,17 @@ input {
   margin-bottom: 0.5em;
   border: 1px solid var(--primary);
 }
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.btn-login {
+  background-color: var(--complementary);
+  color: white;
+}
+.btn-cancel{
+    background-color: var(--primary);
+    color: white;
+}

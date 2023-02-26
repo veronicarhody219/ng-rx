@@ -4,6 +4,7 @@ import { Project } from 'src/app/interface/project';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',

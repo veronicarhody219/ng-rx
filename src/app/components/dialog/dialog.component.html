@@ -1,23 +1,25 @@
 <div class="container" #content>
-  <h1 mat-dialog-title>User list</h1>
+  <h1 mat-dialog-title>{{ "User list" | translate }}</h1>
   <form [formGroup]="reactiveForm" (ngSubmit)="saveUser()">
     <div mat-dialog-content>
       <mat-form-field>
-        <mat-label>User name</mat-label>
+        <mat-label>{{ "User name" | translate }}</mat-label>
         <input type="text" matInput formControlName="userName" />
       </mat-form-field>
       <mat-form-field>
-        <mat-label>User email</mat-label>
+        <mat-label>{{ "User email" | translate }}</mat-label>
         <input type="text" matInput formControlName="email" />
       </mat-form-field>
       <mat-form-field>
-        <mat-label>User password</mat-label>
+        <mat-label>{{ "User password" | translate }}</mat-label>
         <input type="password" matInput formControlName="password" />
       </mat-form-field>
     </div>
     <div mat-dialog-actions>
-      <button mat-button mat-dialog-close>Close</button>
-      <button type="submit" mat-button cdkFocusInitial>OK</button>
+      <button mat-button mat-dialog-close>{{ "Close" | translate }}</button>
+      <button type="submit" mat-button cdkFocusInitial>
+        {{ "OK" | translate }}
+      </button>
     </div>
   </form>
 </div>

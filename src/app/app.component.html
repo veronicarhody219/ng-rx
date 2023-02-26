@@ -1,15 +1,25 @@
 <nav>
   <button class="btn btn-nav">
-    <a routerLink="">Home</a>
+    <a routerLink="">{{ "home" | translate }}</a>
+  </button>
+  <button class="btn btn-nav" *ngIf="!authService.loggedIn()">
+    <a routerLink="login">{{ "login" | translate }}</a>
+  </button>
+  <button class="btn btn-nav" *ngIf="!authService.loggedIn()">
+    <a routerLink="signup">{{ "signup" | translate }}</a>
+  </button>
+  <button
+    class="btn btn-nav"
+    *ngIf="authService.loggedIn()"
+    (click)="authService.logout()"
+  >
+    <a routerLink="signup">{{ "logout" | translate }}</a>
   </button>
   <button class="btn btn-nav">
-    <a routerLink="login">Login</a>
+    <a routerLink="users">{{ "dialog" | translate }}</a>
   </button>
   <button class="btn btn-nav">
-    <a routerLink="users">Dialog</a>
-  </button>
-  <button class="btn btn-nav">
-    <a routerLink="projects">Projects</a>
+    <a routerLink="projects">{{ "projects" | translate }}</a>
   </button>
   <button class="btn btn-nav">
     <a routerLink="ex1">ex1</a>
@@ -20,5 +30,19 @@
   <button class="btn btn-nav">
     <a routerLink="ex3">ex3</a>
   </button>
+  <select
+    class="language"
+    #selectedLang
+    (change)="changeLang(selectedLang.value)"
+  >
+    <option
+      *ngFor="let lang of translate.getLangs()"
+      [value]="lang"
+      [selected]="lang === translate.currentLang"
+    >
+      {{ lang }}
+    </option>
+  </select>
 </nav>
+
 <router-outlet> </router-outlet>
