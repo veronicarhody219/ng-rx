@@ -11,8 +11,9 @@ export class UserService {
   get RequiredRefresh() {
     return this._refreshrequired;
   }
-  //https: //veronicabackend.onrender.com/api/auth
+  //https://veronicabackend.onrender.com/api/auth
   apiUrl = 'https://veronicabackend.onrender.com/api/user';
+  // apiUrl = 'http://localhost:4000/api/user';
   constructor(private http: HttpClient) {}
   getUsers(): Observable<User> {
     return this.http.get<User>(this.apiUrl);

@@ -13,8 +13,10 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class AuthService {
   // https://veronicabackend.onrender.com/api/auth
-  apiUrlLogin = 'https://veronicabackend.onrender.com/api/auth/login';
-  apiUrlRegister = 'hhttps://veronicabackend.onrender.com/api/auth/signup';
+  // apiUrlLogin = 'https://veronicabackend.onrender.com/api/auth/login';
+  // apiUrlRegister = 'hhttps://veronicabackend.onrender.com/api/auth/signup';
+  apiUrlLogin = 'http://localhost:4000/api/auth/login';
+  apiUrlRegister = 'http://localhost:4000/api/auth/signup';
   constructor(private http: HttpClient, private router: Router) {}
   login(userCred: any) {
     return this.http.post(this.apiUrlLogin, userCred);

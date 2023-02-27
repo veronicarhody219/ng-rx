@@ -12,7 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   title = 'learn-ngrx';
-  lang;
+
   constructor(
     public authService: AuthService,
     public translate: TranslateService
